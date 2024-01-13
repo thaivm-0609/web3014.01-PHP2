@@ -6,6 +6,20 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitccf8cb2531e8909430e8e3c25452d6e7
 {
+    public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Pecee\\' => 6,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Pecee\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pecee/simple-router/src/Pecee',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -13,6 +27,8 @@ class ComposerStaticInitccf8cb2531e8909430e8e3c25452d6e7
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitccf8cb2531e8909430e8e3c25452d6e7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitccf8cb2531e8909430e8e3c25452d6e7::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitccf8cb2531e8909430e8e3c25452d6e7::$classMap;
 
         }, null, ClassLoader::class);
