@@ -6,4 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Phroute\\Phroute\\' => array($vendorDir . '/phroute/phroute/src/Phroute'),
+    'Admin\\MvcOop\\' => array($baseDir . '/app'),
 );
