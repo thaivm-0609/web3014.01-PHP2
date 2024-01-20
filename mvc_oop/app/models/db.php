@@ -1,17 +1,17 @@
 <?php
 class db {
-    CONST DBHOST = "localhost"; 
-    CONST DBNAME = "web3014.01";
-    CONST USERNAME = "root";
-    CONST PASSWORD = "";
+    protected $dbhost = "localhost"; 
+    protected $dbname = "web3014.01";
+    protected $username = "root";
+    protected $password = "";
 
     //hàm tạo kết nối với cơ sở dữ liệu
     public function getConnect() 
     {
-        $connect = new PDO("mysql:host=" . DBHOST
-            . ";dbname=" . DBNAME,
-            USERNAME,
-            PASSWORD
+        $connect = new PDO("mysql:host=" . $this->dbhost
+            . ";dbname=" . $this->dbname,
+            $this->username,
+            $this->password
         );
 
         return $connect;
