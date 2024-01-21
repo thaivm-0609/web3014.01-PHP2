@@ -1,5 +1,7 @@
 <?php
-require "app/models/db.php";
+namespace App\Models;
+// require "app/models/db.php"; //ko sử dụng require
+use App\Models\db;
 
 class Product extends db 
 {

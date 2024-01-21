@@ -3,7 +3,7 @@
     "description": "web3014.01",
     "autoload": {
         "psr-4": {
-            "Admin\\MvcOop\\": "app/"
+            "App\\": "app/"
         }
     },
     "authors": [

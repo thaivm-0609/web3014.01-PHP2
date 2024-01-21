@@ -1,17 +1,22 @@
 <?php
+namespace App\Models;
+
+use PDO;
+
 class db {
-    protected $dbhost = "localhost"; 
-    protected $dbname = "web3014.01";
-    protected $username = "root";
-    protected $password = "";
+    //chuyển sang file env.php;
+    // protected $dbhost = "localhost"; 
+    // protected $dbname = "web3014.01";
+    // protected $username = "root";
+    // protected $password = "";
 
     //hàm tạo kết nối với cơ sở dữ liệu
     public function getConnect() 
     {
-        $connect = new PDO("mysql:host=" . $this->dbhost
-            . ";dbname=" . $this->dbname,
-            $this->username,
-            $this->password
+        $connect = new PDO("mysql:host=" . DBHOST
+            . ";dbname=" . DBNAME,
+            USERNAME,
+            PASSWORD
         );
 
         return $connect;
