@@ -3,6 +3,7 @@ namespace App\Models;
 
 use PDO;
 
+//tên file trùng tên class
 class db {
     //chuyển sang file env.php;
     // protected $dbhost = "localhost"; 
@@ -30,6 +31,15 @@ class db {
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
+
+    //query by ID
+    public function getDataById($query) {
+        $conn = $this->getConnect();
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetch();
     }
 }
 ?>
