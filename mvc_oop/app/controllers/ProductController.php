@@ -1,9 +1,10 @@
 <?php
 namespace App\Controllers; //quy tắc đặt namespace, viết hoa cữ cái đầu
 
+use App\Controllers\BaseController;
 use App\Models\Product;
 
-class ProductController 
+class ProductController extends BaseController
 {
     public $productModel;
 
@@ -13,7 +14,9 @@ class ProductController
     //trả về danh sách sản phẩm và chỉ định view
     public function listProduct() {
         $products = $this->productModel->getAllProduct(); //gọi vào hàm getAllProduct
-        include "app/views/Products.php"; //chỉ định views sẽ sử dụng
+        $test = "đây là biến";
+        // include "app/views/products/list.php"; //chỉ định views sẽ sử dụng
+        $this->render('products.list',compact('products','test'));
     }
 
     public function newPro() {
@@ -30,7 +33,8 @@ class ProductController
 
     public function edit($id) { //trả về form update và fill dữ liệu cũ
        $product = $this->productModel->getById($id);
-       include "app/views/products/update.php";
+    //    include "app/views/products/update.php";
+        $this->render('products.update', compact('product'));
     }
 
     public function update($id) { //update bản ghi
